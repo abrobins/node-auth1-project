@@ -22,7 +22,7 @@ const sessionConfig = {
 
 server.use(helmet());
 server.use(express.json());
-server.use(cors({ credentials: true, origin: "http://localhost:3000" }));
+server.use(cors({ credentials: true, origin: "http://localhost:3000" })); // required to get cookies to work correctly
 server.use(session(sessionConfig));
 
 server.use("/api/users", restricted, usersRouter);

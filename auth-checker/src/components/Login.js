@@ -52,7 +52,7 @@ const Login = props => {
     // setUser({ username: "", email: "", password: "" });
     axios
       .post("http://localhost:5008/api/auth/login", user, {
-        withCredentials: true
+        withCredentials: true // required to get cookies to work properly
       })
       .then(res => {
         console.log("Log in data", res.data);
