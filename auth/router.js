@@ -24,14 +24,14 @@ router.post("/login", (req, res) => {
   const { username, password } = req.body;
 
   Users.findBy({ username })
-    .then(([user]) => {
+    .then(user => {
       if (user && bcrypt.compareSync(password, user.password)) {
         // remember this client somehow
         req.session.user = {
           id: user.id,
           username: user.username
         };
-        res.status(200).json({ hello: user.username });
+        res.status(200).json({ token: user.username });
       } else {
         res.status(401).json({ message: "invalid credentials" });
       }
