@@ -25,6 +25,7 @@ router.post("/login", (req, res) => {
 
   Users.findBy({ username })
     .then(user => {
+      // luis had line 27 as [user] but didn't have .first() in the users-model.js file
       if (user && bcrypt.compareSync(password, user.password)) {
         // remember this client somehow
         req.session.user = {

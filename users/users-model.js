@@ -14,7 +14,7 @@ function find() {
 function findBy(filter) {
   return db("users")
     .where(filter)
-    .first();
+    .first(); // this allowed us to not have to destructure the [users] array in the findby() function of router.js
 }
 
 async function add(user) {
